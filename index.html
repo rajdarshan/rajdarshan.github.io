@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Darshan Raju — Senior iOS Engineer</title>
+<meta name="description" content="Darshan Raju — Senior iOS Engineer. 11+ years architecting Swift, SwiftUI and Swift Concurrency systems at scale." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F1F3F6;
+    --bg-panel: #E7EBF1;
+    --grid-line: #D3DAE3;
+    --ink: #16202B;
+    --ink-soft: #52616F;
+    --ink-faint: #8695A3;
+    --rule: #C7D0DB;
+    --accent: #2F5FE0;
+    --accent-soft: #DCE5FB;
+    --amber: #C97A22;
+    --green: #2F8F5B;
+    --rose: #C24545;
+    --radius: 3px;
+    --maxw: 920px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+
+  body{
+    margin:0;
+    background:
+      linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0/100% 96px,
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0/96px 100%,
+      var(--bg);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; }
+  ::selection{ background:var(--accent); color:#fff; }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  .display{ font-family:'Space Grotesk', sans-serif; }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:6px; height:6px;
+    background:var(--accent);
+    border-radius:1px;
+    display:inline-block;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(241,243,246,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px;
+  }
+  .nav-mark{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:.02em;
+    text-decoration:none;
+    display:flex; align-items:center; gap:8px;
+  }
+  .nav-mark .dot{
+    width:8px; height:8px; background:var(--ink); display:inline-block;
+    border-radius:1px;
+  }
+  nav.links{
+    display:flex; gap:22px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+  }
+  nav.links a{
+    text-decoration:none; color:var(--ink-soft);
+    padding:4px 2px; border-bottom:1px solid transparent;
+    transition:color .15s, border-color .15s;
+  }
+  nav.links a:hover{ color:var(--ink); border-color:var(--accent); }
+  .resume-btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    text-decoration:none;
+    color:var(--ink);
+    border:1px solid var(--ink);
+    padding:7px 13px;
+    border-radius:2px;
+    white-space:nowrap;
+    transition:background .15s, color .15s;
+  }
+  .resume-btn:hover{ background:var(--ink); color:var(--bg); }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding:76px 0 40px; }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap:40px;
+    align-items:center;
+  }
+  .hero h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:clamp(34px, 5vw, 52px);
+    line-height:1.08;
+    margin:14px 0 12px;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 .accent{ color:var(--accent); }
+  .hero p.lede{
+    font-size:17px;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin:0 0 26px;
+  }
+  .hero-cta{ display:flex; gap:12px; flex-wrap:wrap; }
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    text-decoration:none;
+    padding:10px 16px;
+    border-radius:2px;
+    border:1px solid var(--ink);
+    transition:background .15s, color .15s, transform .1s;
+  }
+  .btn.primary{ background:var(--ink); color:var(--bg); }
+  .btn.primary:hover{ transform:translateY(-1px); }
+  .btn.ghost{ color:var(--ink); }
+  .btn.ghost:hover{ background:var(--bg-panel); }
+
+  /* schematic svg */
+  .schematic{ width:100%; height:auto; }
+  .schematic .node-circle{ fill:var(--bg); stroke:var(--ink); stroke-width:1.4; }
+  .schematic .node-circle.core{ fill:var(--accent); stroke:var(--accent); }
+  .schematic .edge{ stroke:var(--rule); stroke-width:1.2; fill:none; stroke-dasharray:3 3; }
+  .schematic text{ font-family:'IBM Plex Mono', monospace; font-size:9.5px; fill:var(--ink-soft); }
+  .schematic text.core-label{ fill:#fff; font-size:9px; font-weight:600; }
+  .schematic .pulse{
+    fill:var(--amber);
+    animation: travel 5.5s linear infinite;
+    offset-rotate: 0deg;
+  }
+  @keyframes travel{
+    0%{ offset-distance:0%; opacity:0; }
+    5%{ opacity:1; }
+    95%{ opacity:1; }
+    100%{ offset-distance:100%; opacity:0; }
+  }
+
+  /* ---------- STAT STRIP ---------- */
+  .stat-strip{
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    padding:22px 0;
+    margin-top:44px;
+  }
+  .stat-row{
+    display:flex; flex-wrap:wrap;
+    gap:0;
+  }
+  .stat{
+    flex:1 1 160px;
+    padding:0 22px;
+    border-left:1px solid var(--rule);
+  }
+  .stat:first-child{ border-left:none; padding-left:0; }
+  .stat .num{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:26px;
+    color:var(--ink);
+  }
+  .stat .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:.03em;
+    color:var(--ink-faint);
+    text-transform:uppercase;
+    margin-top:2px;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding:76px 0; }
+  section.alt{ background:var(--bg-panel); }
+  h2.section-title{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:28px;
+    margin:8px 0 30px;
+  }
+
+  .fade-up{ opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
+  .fade-up.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap:48px;
+  }
+  .about-grid p{ color:var(--ink-soft); margin:0 0 16px; max-width:56ch; }
+  .stack-group{ margin-bottom:18px; }
+  .stack-group .g-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; text-transform:uppercase; letter-spacing:.06em;
+    color:var(--ink-faint); margin-bottom:8px;
+  }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:7px; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    padding:4px 9px;
+    border:1px solid var(--rule);
+    border-radius:2px;
+    color:var(--ink-soft);
+    background:var(--bg);
+  }
+
+  /* ---------- EXPERIENCE (git log style) ---------- */
+  .commit{
+    border-left:2px solid var(--rule);
+    padding:2px 0 30px 24px;
+    position:relative;
+  }
+  .commit::before{
+    content:"";
+    position:absolute; left:-6px; top:4px;
+    width:10px; height:10px;
+    background:var(--bg);
+    border:2px solid var(--accent);
+    border-radius:50%;
+  }
+  .commit:last-child{ border-left:2px solid transparent; padding-bottom:0; }
+  .commit-head{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink-faint);
+    margin-bottom:2px;
+  }
+  .commit-head .hash{ color:var(--amber); }
+  .commit-head .ref{ color:var(--accent); }
+  .commit-role{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:19px;
+    margin:6px 0 2px;
+  }
+  .commit-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink-faint);
+    margin-bottom:12px;
+  }
+  .commit-body{ color:var(--ink-soft); margin:0 0 14px; max-width:60ch; }
+  .commit-body li{ margin-bottom:6px; }
+  .diffstat{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-faint);
+    display:flex; flex-wrap:wrap; gap:14px;
+  }
+  .diffstat .plus{ color:var(--green); }
+  .diffstat .minus{ color:var(--rose); }
+
+  .earlier-log{
+    margin-top:8px;
+    padding-top:10px;
+    border-top:1px dashed var(--rule);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--ink-faint);
+  }
+  .earlier-log .row{
+    display:flex; gap:12px; padding:7px 0;
+    border-bottom:1px dotted var(--rule);
+    flex-wrap:wrap;
+  }
+  .earlier-log .row:last-child{ border-bottom:none; }
+  .earlier-log .hash{ color:var(--amber); }
+  .earlier-log .role{ color:var(--ink); }
+  .earlier-log .org{ color:var(--ink-soft); }
+  .earlier-log .date{ margin-left:auto; }
+
+  /* ---------- WORK CARDS ---------- */
+  .work-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+  }
+  .work-card{
+    background:var(--bg);
+    padding:26px;
+    position:relative;
+  }
+  .work-card .tick{
+    position:absolute; width:9px; height:9px;
+    border:1.4px solid var(--ink-faint);
+  }
+  .work-card .tick.tl{ top:10px; left:10px; border-right:none; border-bottom:none; }
+  .work-card .tick.br{ bottom:10px; right:10px; border-left:none; border-top:none; }
+  .work-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:10px; display:block;
+  }
+  .work-card h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:18px; margin:0 0 10px;
+  }
+  .work-card p{ color:var(--ink-soft); font-size:14.5px; margin:0; }
+  .work-card p .arrow{ color:var(--ink-faint); }
+
+  /* ---------- WRITING ---------- */
+  .writing-panel{
+    border:1px dashed var(--rule);
+    padding:30px;
+    display:flex; justify-content:space-between; align-items:center;
+    gap:20px; flex-wrap:wrap;
+  }
+  .writing-panel p{ color:var(--ink-soft); max-width:48ch; margin:6px 0 0; }
+  .writing-panel h3{ font-family:'Space Grotesk',sans-serif; margin:0; font-size:20px; }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{ padding:70px 0 40px; }
+  .contact-grid{
+    display:grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap:40px;
+    align-items:start;
+    padding-bottom:36px;
+    border-bottom:1px solid var(--rule);
+  }
+  footer h2.section-title{ margin-bottom:12px; }
+  footer .lede{ color:var(--ink-soft); max-width:44ch; margin:0 0 22px; }
+  .contact-links{ display:flex; flex-direction:column; gap:10px; }
+  .contact-links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    text-decoration:none;
+    color:var(--ink);
+    display:inline-flex; align-items:center; gap:8px;
+    width:fit-content;
+    border-bottom:1px solid transparent;
+  }
+  .contact-links a:hover{ border-color:var(--accent); color:var(--accent); }
+  .contact-links .k{ color:var(--ink-faint); }
+  .foot-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+    margin-top:24px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-faint);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:780px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero{ padding-top:52px; }
+    .about-grid{ grid-template-columns:1fr; }
+    .work-grid{ grid-template-columns:1fr; }
+    .contact-grid{ grid-template-columns:1fr; }
+    .stat-row{ gap:18px 0; }
+    .stat{ flex:1 1 44%; border-left:none; padding-left:0; }
+    nav.links{ gap:14px; }
+    .nav-inner{ flex-wrap:wrap; row-gap:10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-mark"><span class="dot"></span>DARSHAN.RAJU</a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="resume-btn" href="resume.pdf" download="Darshan_Raju_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↓</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Senior iOS Engineer · Bangalore, India</p>
+        <h1>Building iOS systems that hold up<span class="accent">.</span></h1>
+        <p class="lede">11+ years architecting Swift, SwiftUI and Swift Concurrency applications for enterprise and consumer products — from technical design through App Store release.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#work">See the work →</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div>
+        <svg class="schematic" viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of Darshan's core engineering focus areas connected around iOS architecture">
+          <path id="p1" class="edge" d="M170,150 L80,60"></path>
+          <path id="p2" class="edge" d="M170,150 L262,55"></path>
+          <path id="p3" class="edge" d="M170,150 L48,175"></path>
+          <path id="p4" class="edge" d="M170,150 L282,180"></path>
+          <path id="p5" class="edge" d="M170,150 L110,255"></path>
+          <path id="p6" class="edge" d="M170,150 L232,250"></path>
+
+          <circle class="pulse" r="3"><animateMotion dur="3.4s" repeatCount="indefinite" path="M170,150 L80,60"/></circle>
+          <circle class="pulse" r="3"><animateMotion dur="4.1s" begin="0.6s" repeatCount="indefinite" path="M170,150 L282,180"/></circle>
+          <circle class="pulse" r="3"><animateMotion dur="3.8s" begin="1.2s" repeatCount="indefinite" path="M170,150 L110,255"/></circle>
+
+          <circle class="node-circle core" cx="170" cy="150" r="30"></circle>
+          <text class="core-label" x="170" y="147" text-anchor="middle">iOS</text>
+          <text class="core-label" x="170" y="159" text-anchor="middle">ARCH</text>
+
+          <circle class="node-circle" cx="80" cy="60" r="22"></circle>
+          <text x="80" y="63" text-anchor="middle">Swift 6</text>
+
+          <circle class="node-circle" cx="262" cy="55" r="22"></circle>
+          <text x="262" y="58" text-anchor="middle">SwiftUI</text>
+
+          <circle class="node-circle" cx="48" cy="175" r="22"></circle>
+          <text x="48" y="178" text-anchor="middle">Actors</text>
+
+          <circle class="node-circle" cx="282" cy="180" r="22"></circle>
+          <text x="282" y="178" text-anchor="middle">MVVM-C</text>
+
+          <circle class="node-circle" cx="110" cy="255" r="22"></circle>
+          <text x="110" y="258" text-anchor="middle">CI/CD</text>
+
+          <circle class="node-circle" cx="232" cy="250" r="22"></circle>
+          <text x="232" y="253" text-anchor="middle">Testing</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="wrap stat-row">
+        <div class="stat"><div class="num">11+</div><div class="label">Years shipping iOS</div></div>
+        <div class="stat"><div class="num">99%</div><div class="label">Crash-free sessions</div></div>
+        <div class="stat"><div class="num">50%</div><div class="label">Faster release cycles</div></div>
+        <div class="stat"><div class="num">7</div><div class="label">Countries in production</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap fade-up">
+      <p class="eyebrow">About</p>
+      <h2 class="section-title">Architecture first, polish second — never the other way around.</h2>
+      <div class="about-grid">
+        <div>
+          <p>I'm a Senior iOS Engineer based in Bangalore, building high-performance iOS and iPadOS applications for enterprise and consumer products. My focus sits at the architecture layer — MVVM-C, Clean Architecture, modularization — because systems built to survive years of iteration matter more to me than features that just work on launch day.</p>
+          <p>Recent focus: leading the shift toward SwiftUI and Swift Concurrency in production codebases, and mentoring engineers through that transition. I've led teams of up to 8 engineers and QA, and owned products end-to-end from technical design through App Store release.</p>
+        </div>
+        <div>
+          <div class="stack-group">
+            <div class="g-label">Language &amp; Core</div>
+            <div class="tag-row">
+              <span class="tag">Swift 6</span><span class="tag">Swift Concurrency</span><span class="tag">Objective-C</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <div class="g-label">Frameworks</div>
+            <div class="tag-row">
+              <span class="tag">SwiftUI</span><span class="tag">Combine</span><span class="tag">UIKit</span><span class="tag">Core Data</span><span class="tag">Swift Charts</span><span class="tag">AVFoundation</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <div class="g-label">Architecture</div>
+            <div class="tag-row">
+              <span class="tag">MVVM-C</span><span class="tag">Clean Architecture</span><span class="tag">VIPER</span><span class="tag">SOLID</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <div class="g-label">Tooling</div>
+            <div class="tag-row">
+              <span class="tag">Xcode Cloud</span><span class="tag">SPM</span><span class="tag">Fastlane</span><span class="tag">XCTest</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="alt" id="experience">
+    <div class="wrap fade-up">
+      <p class="eyebrow">Experience</p>
+      <h2 class="section-title">git log --author=darshan --reverse</h2>
+
+      <div class="commit">
+        <div class="commit-head"><span class="hash">#current</span> <span class="ref">(HEAD -&gt; main)</span></div>
+        <div class="commit-role">Independent iOS Developer</div>
+        <div class="commit-meta">Self-Directed Projects · Bangalore · Jul 2025 – Present</div>
+        <ul class="commit-body">
+          <li>Building independent projects to stay current on Swift 6 concurrency, actor isolation, and advanced SwiftUI state management, following a planned career break.</li>
+          <li>Prototyping a SwiftUI app on the Observation framework to explore UIKit/Combine → SwiftUI migration patterns.</li>
+        </ul>
+      </div>
+
+      <div class="commit">
+        <div class="commit-head"><span class="hash">#buyogo</span></div>
+        <div class="commit-role">Senior iOS Developer</div>
+        <div class="commit-meta">Buyogo Technologies · Bangalore (remote) · Jan 2023 – Jun 2025</div>
+        <ul class="commit-body">
+          <li>Owned end-to-end architecture for 3 enterprise iOS/iPadOS apps across 100+ manufacturing facilities in 7 countries — defining technical direction and delivery strategy.</li>
+          <li>Built Solvei8's Swift Charts dashboards (10K+ data points) and redesigned its data layer on MVVM-C + Combine with local caching.</li>
+          <li>Established CI/CD on Xcode Cloud, cutting release cycles from ~4 weeks to 2.</li>
+        </ul>
+        <div class="diffstat">
+          <span class="plus">+8 engineers led</span>
+          <span class="plus">+50% release velocity</span>
+          <span class="minus">-20% delivery timeline</span>
+        </div>
+      </div>
+
+      <div class="commit">
+        <div class="commit-head"><span class="hash">#zilingo</span></div>
+        <div class="commit-role">Senior iOS Developer</div>
+        <div class="commit-meta">Zilingo Funline Pvt. Ltd. · Bangalore · Dec 2016 – Dec 2022</div>
+        <ul class="commit-body">
+          <li>Owned the Zilingo Buyer &amp; Seller apps end-to-end, securing a 4.9 App Store rating.</li>
+          <li>Built a server-driven layout architecture supporting growth to ~150K daily active users, and a backend-driven checkout engine across 5 countries.</li>
+          <li>Led a stability initiative raising crash-free sessions to 99%; mentored 4 junior engineers.</li>
+        </ul>
+        <div class="diffstat">
+          <span class="plus">+4.9★ rating</span>
+          <span class="plus">+150K DAU</span>
+          <span class="minus">-18% checkout drop-off</span>
+        </div>
+      </div>
+
+      <div class="earlier-log">
+        <div class="row"><span class="hash">#antly</span> <span class="role">Mobile Application Developer (iOS)</span><span class="org">· Antly Pvt. Ltd.</span><span class="date">May – Nov 2016</span></div>
+        <div class="row"><span class="hash">#techjini</span> <span class="role">iOS Developer</span><span class="org">· Techjini Solutions</span><span class="date">Sep 2014 – May 2016</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section id="work">
+    <div class="wrap fade-up">
+      <p class="eyebrow">Selected Work</p>
+      <h2 class="section-title">Systems shipped to production.</h2>
+      <div class="work-grid">
+        <div class="work-card">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="work-tag">Analytics</span>
+          <h3>Solvei8</h3>
+          <p>Operational intelligence dashboards plotting 10,000+ data points. <span class="arrow">→</span> Cut CPU spikes 40%, memory overhead 35%, API calls 50%.</p>
+        </div>
+        <div class="work-card">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="work-tag">IoT / Scanning</span>
+          <h3>Maintaini8</h3>
+          <p>Asset &amp; maintenance monitoring with AVFoundation QR scanning on legacy factory hardware. <span class="arrow">→</span> Cut scan latency ~35%, battery use ~20%.</p>
+        </div>
+        <div class="work-card">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="work-tag">Commerce</span>
+          <h3>Zilingo Buyer App</h3>
+          <p>Server-driven layout engine and multi-country checkout with BNPL and local wallets. <span class="arrow">→</span> Grew to ~150K DAU, cut checkout drop-off ~18%.</p>
+        </div>
+        <div class="work-card">
+          <span class="tick tl"></span><span class="tick br"></span>
+          <span class="work-tag">Commerce</span>
+          <h3>Zilingo Seller App</h3>
+          <p>Idempotent batch-processing engine for SKU inventory sync under unstable networks. <span class="arrow">→</span> 99.9% sync accuracy, zero overselling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING -->
+  <section class="alt" id="writing">
+    <div class="wrap fade-up">
+      <p class="eyebrow">Writing</p>
+      <h2 class="section-title">Notes on iOS architecture &amp; Swift Concurrency.</h2>
+      <div class="writing-panel">
+        <div>
+          <h3>First post landing soon.</h3>
+          <p>Long-form write-ups on Swift 6 concurrency, SwiftUI architecture, and lessons from shipping iOS at scale — in progress.</p>
+        </div>
+        <a class="btn ghost" href="https://github.com/rajdarshan" target="_blank" rel="noopener">Follow on GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 class="section-title">Let's talk.</h2>
+          <p class="lede">Open to senior iOS roles and architecture-focused conversations. Based in Bangalore, working with teams anywhere.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:reachdarshanraju@gmail.com"><span class="k">→</span> reachdarshanraju@gmail.com</a>
+          <a href="https://linkedin.com/in/darshanraju1/" target="_blank" rel="noopener"><span class="k">→</span> linkedin.com/in/darshanraju1</a>
+          <a href="https://github.com/rajdarshan" target="_blank" rel="noopener"><span class="k">→</span> github.com/rajdarshan</a>
+          <a href="resume.pdf" download="Darshan_Raju_Resume.pdf" target="_blank" rel="noopener noreferrer"><span class="k">→</span> Download resume (PDF)</a>
+        </div>
+      </div>
+      <div class="wrap foot-bottom" style="padding:0;">
+        <span>© <span id="year"></span> Darshan Raju</span><span>Handcrafted in Swift & Clean HTML</span>
+        <span>Bangalore, India</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
