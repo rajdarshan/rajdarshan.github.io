@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Lyfelabs Privacy Policy</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1c1c1e;
+    --muted: #6c6c70;
+    --rule: #e3e3e6;
+    --panel: #f5f5f7;
+    --accent: #1c6b5a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #000000;
+      --fg: #f2f2f7;
+      --muted: #98989e;
+      --rule: #2c2c2e;
+      --panel: #1c1c1e;
+      --accent: #55c4a8;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    /* -apple-system-body picks up the user's Dynamic Type size */
+    font: -apple-system-body;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    margin: 0;
+    padding: 24px 20px calc(48px + env(safe-area-inset-bottom))
+             20px;
+    padding-left: calc(20px + env(safe-area-inset-left));
+    padding-right: calc(20px + env(safe-area-inset-right));
+    line-height: 1.55;
+    -webkit-text-size-adjust: 100%;
+    max-width: 44rem;
+    margin-inline: auto;
+  }
+
+  h1 {
+    font-size: 1.55em;
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 4px;
+  }
+
+  h2 {
+    font-size: 1.12em;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    margin: 2.2em 0 0.5em;
+    padding-top: 1.1em;
+    border-top: 1px solid var(--rule);
+  }
+
+  h2:first-of-type { border-top: none; padding-top: 0; }
+
+  .dates {
+    color: var(--muted);
+    font-size: 0.85em;
+    margin: 0 0 1.6em;
+  }
+
+  p { margin: 0 0 0.9em; }
+
+  ul { margin: 0 0 0.9em; padding-left: 1.25em; }
+  li { margin-bottom: 0.4em; }
+
+  .lede {
+    background: var(--panel);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin: 0 0 1.8em;
+  }
+  .lede p:last-child { margin-bottom: 0; }
+  .lede strong { color: var(--accent); }
+
+  a { color: var(--accent); }
+
+  footer {
+    margin-top: 2.6em;
+    padding-top: 1.1em;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 0.85em;
+  }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="dates">Lyfelabs for iOS &middot; Effective 12th September 2026</p>
+
+<div class="lede">
+  <p><strong>The short version.</strong> Lyfelabs stores your family's blood test records on your device. There is no Lyfelabs account, no Lyfelabs server, and no way for the developer to see the health information you enter. The only information that ever leaves your device automatically is an anonymous crash report when the app stops unexpectedly.</p>
+</div>
+
+<h2>Who is responsible for this app</h2>
+<p>Lyfelabs is developed and published by Darshan Raju, an individual developer based in India, operating as an individual Apple Developer Program member. For the purposes of India's Digital Personal Data Protection Act, 2023, the developer acts as the Data Fiduciary only for the limited crash diagnostics described below. The health information you enter into the app is stored on your own device and in your own iCloud account, and the developer neither receives nor has access to it.</p>
+<p>You can reach the developer at <a href="mailto:darshanraju.dev@gmail.com">darshanraju.dev@gmail.com</a>.</p>
+
+<h2>Information you enter into the app</h2>
+<p>You may enter the following into Lyfelabs:</p>
+<ul>
+  <li>Family member profiles, including name, date of birth, sex, and relationship</li>
+  <li>Blood test reports, including test dates, laboratory names, and notes</li>
+  <li>Blood marker values and units</li>
+  <li>Reminders for upcoming tests</li>
+</ul>
+<p>All of this is written to a local database on your device using Apple's SwiftData framework. It is not transmitted to the developer, and it is not shared with any third party by the app itself.</p>
+
+<h2>iCloud sync</h2>
+<p>If your device is signed in to an Apple Account with iCloud Drive enabled, Lyfelabs automatically synchronises your data across the Apple devices signed in to that account, using Apple's CloudKit private database. Data in a CloudKit private database is stored under your Apple Account and is not accessible to the developer. Its handling is governed by Apple's privacy policy and iCloud terms.</p>
+<p>Lyfelabs does not have its own sync switch; it follows your device's iCloud settings, and tells you so with an on-screen notice the first time you open the app. The app's Settings screen shows the current sync status so you can see what it is doing. You control whether syncing happens through iOS Settings — by turning off iCloud Drive for Lyfelabs, or by signing out of iCloud. If syncing is not active, your data stays only on the device where you entered it, and is included in your encrypted device backups if you make them.</p>
+
+<h2>Crash reporting</h2>
+<p>Lyfelabs uses Google Firebase Crashlytics to detect and diagnose crashes. This is the only component of the app that sends information off your device automatically. When the app crashes, Crashlytics may collect:</p>
+<ul>
+  <li>The crash stack trace and the state of the app at the moment of the crash</li>
+  <li>A randomly generated Crashlytics installation identifier, which is specific to your installation of this app and is not linked to you, your Apple Account, or any other app</li>
+  <li>Device model, operating system version, app version, device language, and available memory and storage</li>
+  <li>Your IP address, used to transmit the report</li>
+</ul>
+<p>Crash reports do not include the health information you enter. The app does not attach family member names, marker values, test results, notes, or any other record content to crash reports, and does not set custom Crashlytics keys or logs containing that information.</p>
+<p>Crash data is processed by Google as a service provider on the developer's behalf, and may be stored and processed on servers outside India. Google retains crash traces and their associated identifiers for a limited period (currently around 90 days) before deleting them. Google's handling of this data is described in the Firebase privacy documentation and the Google Privacy Policy.</p>
+
+<h2>What Lyfelabs does not do</h2>
+<ul>
+  <li>No account, sign-up, email address, or phone number is required or collected</li>
+  <li>No analytics, usage tracking, or behavioural profiling</li>
+  <li>No advertising, ad networks, or advertising identifiers (IDFA); the app does not request App Tracking Transparency permission because it does not track you</li>
+  <li>No selling, renting, or sharing of your information with anyone</li>
+  <li>No location collection</li>
+  <li>No integration with Apple Health; Lyfelabs neither reads from nor writes to the Health app</li>
+  <li>No developer-operated server or backend of any kind</li>
+</ul>
+
+<h2>Exporting and sharing</h2>
+<p>Lyfelabs can generate PDF and CSV files from your records. These are created on your device and are only shared when you choose to share them, using the standard iOS share sheet. Once you send a file to another app, service, or person, that file is outside Lyfelabs and this policy no longer governs it. Exported files contain health information, so take the same care with them that you would with a printed lab report.</p>
+
+<h2>Notifications</h2>
+<p>Reminders are delivered as local notifications scheduled on your device. No reminder content is sent to a server, and no push notification service is used. You can turn notifications off at any time in iOS Settings.</p>
+
+<h2>Information about other people</h2>
+<p>Lyfelabs is designed for tracking the results of a household, which means you will usually be entering health information about people other than yourself. You are responsible for having each person's permission before you record their information in the app, and for handling it appropriately once it is there. For a person who is a child under 18, or anyone who cannot give consent for themselves, their parent or lawful guardian is responsible for deciding whether to enter their information and must do so on their behalf.</p>
+<p>Lyfelabs is intended for use by adults. It is not directed at children, does not knowingly collect information from children, and has no account system through which a child could register.</p>
+
+<h2>Security</h2>
+<p>Your records are stored in the app's container on your device and are protected by iOS file protection, meaning they are encrypted at rest while your device is locked. Set a device passcode and enable Face ID or Touch ID to keep this protection effective. If you use iCloud sync, data in transit and at rest is protected by Apple's CloudKit encryption. Crash reports are transmitted to Google over an encrypted connection.</p>
+<p>No method of storage or transmission is perfectly secure, and the developer cannot guarantee absolute security.</p>
+
+<h2>Keeping and deleting your information</h2>
+<p>Your records stay on your device until you delete them. You can:</p>
+<ul>
+  <li>Delete individual reports, markers, reminders, or family members inside the app</li>
+  <li>Delete the app, which removes its local database from that device</li>
+  <li>Remove synced data from iCloud in iOS Settings, under your Apple Account, iCloud, Manage Account Storage</li>
+</ul>
+<p>Because the developer holds no copy of your records, deleting them from your devices and iCloud removes them entirely. Crash reports are deleted by Google on the retention schedule described above; they are anonymous, so an individual report cannot be traced back to you in order to be removed on request.</p>
+
+<h2>Your rights</h2>
+<p>Under the Digital Personal Data Protection Act, 2023, you have rights of access, correction, and erasure over personal data held about you, along with the right to grievance redressal. In practice, Lyfelabs holds your data on your own device, so you exercise these rights directly inside the app, with no request to the developer needed. For questions, or to raise a grievance about crash diagnostics, write to <a href="mailto:darshanraju.dev@gmail.com">darshanraju.dev@gmail.com</a>. The developer aims to respond within 30 days.</p>
+
+<h2>Not medical advice</h2>
+<p>Lyfelabs is a record-keeping and visualisation tool. Reference ranges shown in the app are general values and vary by laboratory, method, age, sex, and clinical context. Nothing in the app is a diagnosis or medical advice, and it is not a substitute for consulting a qualified doctor about your results.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, the updated version will appear in this screen and at the published policy address, with a new effective date. Material changes will be noted in the app's release notes. Continuing to use Lyfelabs after an update means you accept the revised policy.</p>
+
+<footer>
+  <p>Lyfelabs &middot; Darshan Raju &middot; <a href="mailto:darshanraju.dev@gmail.com">darshanraju.dev@gmail.com</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Lyfelabs — Support</title>
+<meta name="description" content="Support and frequently asked questions for Lyfelabs, an offline-first blood test tracker for families on iOS.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1c1c1e;
+    --muted: #6c6c70;
+    --rule: #e3e3e6;
+    --panel: #f5f5f7;
+    --accent: #1c6b5a;
+    --flag-bg: #fff4d6;
+    --flag-fg: #6b4a00;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #000000;
+      --fg: #f2f2f7;
+      --muted: #98989e;
+      --rule: #2c2c2e;
+      --panel: #1c1c1e;
+      --accent: #55c4a8;
+      --flag-bg: #3a2f00;
+      --flag-fg: #ffd96b;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font: -apple-system-body;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.55;
+    margin: 0 auto;
+    max-width: 44rem;
+    padding: 40px 20px calc(56px + env(safe-area-inset-bottom));
+    padding-left: calc(20px + env(safe-area-inset-left));
+    padding-right: calc(20px + env(safe-area-inset-right));
+    -webkit-text-size-adjust: 100%;
+  }
+
+  a { color: var(--accent); }
+
+  h1 { font-size: 1.55em; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 4px; }
+  h2 {
+    font-size: 1.12em; font-weight: 600; letter-spacing: -0.005em;
+    margin: 2.4em 0 0.6em; padding-top: 1.2em; border-top: 1px solid var(--rule);
+  }
+  p { margin: 0 0 0.9em; }
+  ul, ol { margin: 0 0 0.9em; padding-left: 1.25em; }
+  li { margin-bottom: 0.35em; }
+
+  /* ---- identity block ---- */
+  .identity { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
+  .icon {
+    width: 76px; height: 76px; flex: 0 0 76px;
+    border-radius: 17px; background: var(--panel);
+    border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 0.6em; text-align: center;
+  }
+  .tagline { color: var(--muted); margin: 0; }
+
+  .facts {
+    display: flex; flex-wrap: wrap; gap: 6px 20px;
+    color: var(--muted); font-size: 0.85em;
+    margin: 0 0 1.8em;
+  }
+
+  /* ---- visible placeholder marker ---- */
+  .todo {
+    background: var(--flag-bg); color: var(--flag-fg);
+    padding: 1px 6px; border-radius: 5px;
+    font-size: 0.9em; font-weight: 600;
+  }
+
+  .callout {
+    background: var(--panel); border-radius: 12px;
+    padding: 16px 18px; margin: 0 0 1.6em;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ---- screenshots ---- */
+  /* Columns are sized by available width, not by a fixed count: each one is
+     at least 140px and at most 220px, and as many fit per row as the container
+     allows. Three across on desktop, two on most phones, one on very narrow
+     screens — with no breakpoints to maintain. */
+  .shots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 220px));
+    justify-content: center;
+    gap: 14px;
+    margin: 1.4em 0 1.8em;
+  }
+  .shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 19.5;   /* reserves space before the image loads */
+    object-fit: cover;
+    object-position: top;
+    border-radius: 12px;
+    border: 1px solid var(--rule);
+    background: var(--panel);
+  }
+
+  /* ---- faq ---- */
+  details {
+    border-bottom: 1px solid var(--rule);
+    padding: 12px 0;
+  }
+  details:first-of-type { border-top: 1px solid var(--rule); }
+  summary {
+    cursor: pointer; font-weight: 600;
+    list-style: none; padding-right: 20px; position: relative;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; position: absolute; right: 0; top: -1px;
+    color: var(--muted); font-weight: 400; font-size: 1.2em;
+  }
+  details[open] summary::after { content: "\2212"; }
+  details > *:not(summary) { margin-top: 0.7em; }
+  details p:last-child { margin-bottom: 0; }
+
+  summary:focus-visible, a:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px;
+  }
+
+  .btn {
+    display: inline-block; text-decoration: none;
+    background: var(--accent); color: var(--bg);
+    padding: 10px 18px; border-radius: 10px; font-weight: 600;
+  }
+  @media (prefers-color-scheme: dark) { .btn { color: #000; } }
+
+  footer {
+    margin-top: 3em; padding-top: 1.2em;
+    border-top: 1px solid var(--rule);
+    color: var(--muted); font-size: 0.85em;
+  }
+  footer p { margin: 0 0 0.4em; }
+</style>
+</head>
+<body>
+
+<div class="identity">
+  <img class="icon" src="assets/icon.png" alt="Lyfelabs app icon" loading="lazy">
+  <div>
+    <h1>Lyfelabs</h1>
+    <p class="tagline">Blood test records for your whole family, kept on your device.</p>
+  </div>
+</div>
+
+<div class="facts">
+  <span>Version 1.0</span>
+  <span>Requires iOS or iPadOS 18.6 or later</span>
+  <span>iPhone and iPad</span>
+</div>
+
+<p><a class="btn" href="mailto:darshanraju.dev@gmail.com?subject=Lyfelabs%20support">Email support</a></p>
+
+<h2>What Lyfelabs does</h2>
+
+<p>Lyfelabs keeps blood test results for everyone in a household in one place. You add a profile for each family member, enter the markers from each lab report, and the app charts how each value moves over time against its reference range. It can remind you when a repeat test is due, and export any member's history as a PDF or CSV to take to a doctor.</p>
+
+<p>Everything is stored on your device. There is no account to create and no Lyfelabs server. If you use iCloud, your records sync between your own devices through your own Apple Account and nowhere else.</p>
+
+<div class="shots">
+  <img class="shot" src="assets/shot-home.png"
+       srcset="assets/shot-home.png 600w, assets/shot-home@2x.png 1200w"
+       sizes="(max-width: 500px) 45vw, 220px"
+       width="600" height="1300" loading="lazy" decoding="async"
+       alt="Home screen showing family member's latest results">
+  <img class="shot" src="assets/shot-family.png"
+       srcset="assets/shot-family.png 600w, assets/shot-family@2x.png 1200w"
+       sizes="(max-width: 500px) 45vw, 220px"
+       width="600" height="1300" loading="lazy" decoding="async"
+       alt="Family list showing each members">
+  <img class="shot" src="assets/shot-memberDetail.png"
+       srcset="assets/shot-memberDetail.png 600w, assets/shot-memberDetail@2x.png 1200w"
+       sizes="(max-width: 500px) 45vw, 220px"
+       width="600" height="1300" loading="lazy" decoding="async"
+       alt="Member details showing latest results">
+</div>
+
+<h2>Getting help</h2>
+
+<p>Write to <a href="mailto:darshanraju.dev@gmail.com">darshanraju.dev@gmail.com</a>. Lyfelabs is built and supported by one person, and replies usually go out within two business days.</p>
+
+<p>If you're reporting something going wrong, these three details save a round trip: your iPhone model, your iOS version, and what you were doing just before it happened. Please don't send lab values or health details — they aren't needed to fix a bug, and support email isn't a secure channel for them.</p>
+
+<h2>Questions</h2>
+
+<div class="callout">
+  <p>Lyfelabs records and charts results you enter yourself. It doesn't diagnose anything and isn't a substitute for talking to a doctor about your results. Reference ranges shown in the app are general values and vary between laboratories.</p>
+</div>
+
+<details>
+  <summary>Where is my data stored?</summary>
+  <p>On your device, in the app's own storage. The developer has no server and no access to anything you enter. When iCloud is active on your device, your records also sync through your private Apple Account storage, which the developer likewise cannot read. Full detail is in the <a href="privacy/">privacy policy</a>.</p>
+</details>
+
+<details>
+  <summary>How do I add a family member?</summary>
+  <p>From the family list, tap the add button and fill in a name, date of birth, sex, and relationship. Date of birth and sex matter because several markers have different reference ranges depending on them. Each member gets a colour so their line is easy to pick out on a shared chart.</p>
+</details>
+
+<details>
+  <summary>How do I enter a lab report?</summary>
+  <p>Open the member, add a report, and set the test date and lab name. Then add each marker from the printout with its value. Markers you don't have results for can simply be left out — a report doesn't need to be complete to be charted.</p>
+</details>
+
+<details>
+  <summary>My lab's marker isn't in the list.</summary>
+  <p>Add it as a custom marker with its own name and unit. It is entered, stored, and charted over time exactly like a built-in one.</p>
+  <p>The one difference is that custom markers have no reference range, because there isn't a standard one to apply. Their values are shown and charted as plain numbers, with no normal band on the chart and no high or low flagging. Your lab's printed range stays the thing to read them against.</p>
+  <p>If a marker you use regularly is missing from the built-in catalogue, email its name, unit, and typical reference range and it will be considered for a future update.</p>
+</details>
+
+<details>
+  <summary>My lab reports a different unit than the app shows.</summary>
+  <p>Units for the same marker vary between labs and countries — cholesterol in mg/dL or mmol/L, vitamin D in ng/mL or nmol/L. Pick the unit matching your report when entering the value, so the number is stored exactly as printed. Enter every result for a marker in the same unit, or the trend line won't be comparable across reports.</p>
+</details>
+
+<details>
+  <summary>How does iCloud sync work?</summary>
+  <p>Automatically, if your device is signed in to an Apple Account with iCloud Drive turned on. Your records then sync between your iPhone and iPad, and any other device signed in to that same account, with nothing to set up. Lyfelabs tells you this the first time you open it, so the behaviour isn't a surprise.</p>
+  <p>There is no sync switch inside Lyfelabs — the app follows your device's iCloud settings. The Settings screen shows the current status so you can tell whether syncing is active. To stop it, turn off iCloud Drive for Lyfelabs in iOS Settings, or sign out of iCloud; your records then stay on the device.</p>
+</details>
+
+<details>
+  <summary>My second device isn't showing the same data.</summary>
+  <p>Check two things first: both devices are signed in to the same Apple Account, and iCloud Drive is on in iOS Settings for Lyfelabs on both. The Settings screen in the app shows the current sync status, which is the quickest way to see which device is the problem. After that, give it a network connection and a minute — the first sync of a large history takes longer than later ones. Sync also pauses when a device is in Low Power Mode.</p>
+</details>
+
+<details>
+  <summary>My reminders aren't firing.</summary>
+  <p>Reminders are local notifications, so they need notification permission. Check iOS Settings, Lyfelabs, Notifications, and confirm Allow Notifications is on. A Focus mode or Scheduled Summary can also hold notifications back until later — check whether Lyfelabs is allowed to break through your active Focus.</p>
+  <p>Reminders are set per family member, so a reminder you expect for one person won't appear under another. Open the member you're expecting the reminder for and confirm it is still scheduled there.</p>
+</details>
+
+<details>
+  <summary>How do I export results for a doctor?</summary>
+  <p>Open a member and choose export. PDF gives a readable summary with the trend charts, which is what most doctors want. CSV gives the raw values for a spreadsheet. Both are generated on your device and go into the standard iOS share sheet, so you decide where they go. Once shared, the file is an ordinary document containing health information — treat it like a printed report.</p>
+</details>
+
+<details>
+  <summary>How do I delete data?</summary>
+  <p>Delete a single report from the member's history, or delete a member to remove that person's reports and reminders with them. Deleting the app removes its local database from that device. If you used iCloud sync, also remove the app's data in iOS Settings under your Apple Account, iCloud, Manage Account Storage.</p>
+</details>
+
+<details>
+  <summary>If I delete the app, do I lose everything?</summary>
+  <p>If iCloud syncing was active, reinstalling on a device signed in to the same Apple Account restores your history. If it wasn't — no iCloud Drive, or signed out — the records lived only on that device and deleting the app removes them. Before deleting, export a CSV for each member if you want a copy you control.</p>
+</details>
+
+<details>
+  <summary>Can I use Lyfelabs with Apple Health?</summary>
+  <p>Not currently. Lyfelabs neither reads from nor writes to the Health app.</p>
+</details>
+
+<footer>
+  <p><a href="privacy/">Privacy policy</a> &middot; <span class="todo">App Store link</span> &middot; <a href="https://darshanraju.com">darshanraju.com</a></p>
+  <p>Lyfelabs is made by Darshan Raju in Bangalore, India. Last updated 12th September 2026.</p>
+</footer>
+
+</body>
+</html>
